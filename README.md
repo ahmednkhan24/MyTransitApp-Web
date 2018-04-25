@@ -1,5 +1,5 @@
-#MyTransitApp
-##University of Illinois at Chicago East Campus MyTransitApp - CTA Version
+# MyTransitApp
+## University of Illinois at Chicago East Campus MyTransitApp - CTA Version
 
 This is the final project that I did during my time in the course IT202 during the Spring 2018 semester at UIC. 
 This was an individual project and the subject of the project could be anything we wanted as long as it followed a certain criteria. 
