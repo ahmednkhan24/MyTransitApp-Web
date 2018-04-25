@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="UIC East Campus CTA Bus & Train Tracker">
+	<meta name="keywords" content="CTA,UIC,Bus,Train,Subway,Chicago,Transit,Authority,Tracker,Blueline">
+	<meta name="author" content="Ahmed Khan">
+	<title>MyTransitApp</title>
+	<!-- the MCW stylesheet-->
+  	<link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+	<!-- the material icon font-->
+  	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  	<!-- favicon icon -->
+  	<link rel="shortcut icon" type="image/x-icon" href="./imgs/favicon.ico"/>
+  	<!-- manifest link -->
+  	<link rel="manifest" href="./manifest.json">
+  	<!-- Personal CSS -->
+  	<link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+<body class="mdc-typography">
+	<!-- tool bar -->
+	<header id="shrine-header" class="mdc-toolbar mdc-toolbar--fixed mdc-theme--text-primary-on-background">
+		<div class="mdc-toolbar__row">
+	    	<section class="mdc-toolbar__section mdc-toolbar__section--align-start">
+				<a id="shrine-nav-icon" class="material-icons mdc-ripple-surface"
+				   href="#"
+				   aria-label="Click to show the navigation menu"
+				   aria-controls="shrine-nav-menu"
+				   data-mdc-auto-init="MDCRipple"
+				   data-mdc-ripple-is-unbounded>menu
+				</a>
+		    </section>
+	  	</div>
+	</header>
+	<!-- temporary drawer of the tool bar -->
+	<aside class="mdc-drawer mdc-drawer--temporary mdc-typography">
+		<nav class="mdc-drawer__drawer">
+	    	<header class="mdc-drawer__header">
+	      		<div class="mdc-drawer__header-content">
+	      			<i class="material-icons mdc-list-item__graphic" aria-hidden="true">directions_bus</i>
+	      			<i class="material-icons mdc-list-item__graphic" aria-hidden="true">train</i>
+	      			<strong>UIC East Campus -- MyTransitApp ------- CTA Version ---------</strong>
+	      		</div>	
+	    	</header>
+	    	<nav id="icon-with-text-demo" class="mdc-drawer__content mdc-list">
+	      		<a id="arrivalsNav" class="mdc-list-item mdc-list-item--activated" href="#">
+	       			<i class="material-icons mdc-list-item__graphic" aria-hidden="true">alarm</i>Estimated Arrivals
+	      		</a>
+	      		<a id="nearMeNav" class="mdc-list-item" href="#">
+	       			<i class="material-icons mdc-list-item__graphic" aria-hidden="true">person_pin_circle</i>Near Me
+	      		</a>
+	      		<a id="settingsNav" class="mdc-list-item" href="#">
+	        		<i class="material-icons mdc-list-item__graphic" aria-hidden="true">settings</i>Settings
+	      		</a>
+	    	</nav>
+	  	</nav>
+	</aside>
+
+	<!-- screen 1 -->
+	<div id="arrivalsScreen">
+		<br><br><br>
+		<!-- UIC Halsted image -->
+		<img id="logoImg" src="imgs/halsted.jpg">
+		<div class="container">
+			<!-- bus/train tab bar  -->
+			<div id="busTrainTabBar">
+				<nav id="basic-tab-bar" class="mdc-tab-bar">
+					<a id="busNav" class="mdc-tab mdc-tab--active" href="#">Bus</a>
+					<a id="trainNav" class="mdc-tab" href="#">Train</a>
+					<span class="mdc-tab-bar__indicator"></span>
+				</nav>
+			</div>
+			<div id="busTab">
+				<!-- bus route drop down select menu -->
+				<div id="busRoute" class="mdc-select">
+					<select id="busRouteSelect" class="mdc-select__native-control">
+						<option id="disabledOption" value="" disabled selected></option>
+						<option value="7">7 - Harrison</option>
+						<option value="8">8 - Halsted</option>
+						<option value="12">12 - Roosevelt</option>
+						<option value="60">60 - Blue Island/26th</option>
+						<option value="157">157 - Streeterville/Taylor</option>
+					</select>
+					<div class="mdc-select__label">Select Route</div>
+					<div class="mdc-select__bottom-line"></div>
+				</div>
+				<br>
+				<!-- bus direction drop down select menu -->
+				<div id="busDirection" class="mdc-select">
+					<select id="busDirectionSelect" class="mdc-select__native-control">
+						<option value="" disabled selected></option>
+					</select>
+					<div class="mdc-select__label">Select Direction</div>
+					<div class="mdc-select__bottom-line"></div>
+				</div>
+				<br>
+				<!-- bus stop drop down select menu -->
+				<div id="busStop" class="mdc-select">
+					<select id="busStopSelect" class="mdc-select__native-control">
+						<option value="" disabled selected></option>
+						<option  id="none" class="hide" value="none">Placeholder</option>
+					</select>
+					<div class="mdc-select__label">Select Stop</div>
+					<div class="mdc-select__bottom-line"></div>
+				</div>
+				<br><br>
+				<button id="busSubmitBtn" class="mdc-button submitBtn" disabled><strong>TRACK</strong></button>
+				<div class="results">
+					<ul id="busResults" class="mdc-list">
+						<li class="mdc-list-item hide">Single-line item</li>
+					</ul>
+				</div>
+			</div>
+			<div id="trainTab" class="hide">
+				<!-- train route drop down select menu -->
+				<div id="trainStop" class="mdc-select">
+					<select id="trainStopSelect" class="mdc-select__native-control">
+						<option value="" disabled selected></option>
+						<option value="Clarke/Lake">Clarke/Lake</option>
+						<option value="Washington">Washington</option>
+						<option value="Monroe">Monroe</option>
+						<option value="Jackson">Jackson</option>
+						<option value="LaSalle">LaSalle</option>
+						<option value="Clinton">Clinton</option>
+						<option value="UIC-Halsted">UIC-Halsted</option>
+						<option value="Racine">Racine</option>
+						<option value="Illinois Medical District">Illinois Medical District</option>
+					</select>
+					<div class="mdc-select__label">Select Stop</div>
+					<div class="mdc-select__bottom-line"></div>
+				</div>
+				<br>
+				<!-- radio button for Forest Park -->
+				<div class="mdc-radio">
+					<input id="FP" class="mdc-radio__native-control" type="radio" id="radio-1" name="radios" checked>
+					<div class="mdc-radio__background">
+						<div class="mdc-radio__outer-circle"></div>
+						<div class="mdc-radio__inner-circle"></div>
+					</div>
+				</div>
+				<label id="radio-1-label" class="bound" for="radio-1">To Forest Park</label>
+				<!-- radio button for O'Hare -->
+				<div class="mdc-radio">
+					<input id="OH" class="mdc-radio__native-control" type="radio" id="radio-2" name="radios">
+					<div class="mdc-radio__background">
+						<div class="mdc-radio__outer-circle"></div>
+						<div class="mdc-radio__inner-circle"></div>
+					</div>
+				</div>
+				<label id="radio-2-label" class="bound" for="radio-2">To O'Hare</label>
+				<br><br><br>
+				<button id="trainSubmitBtn" class="mdc-button submitBtn" disabled><strong>TRACK</strong></button>
+				<div class="results">
+					<ul id="trainResults" class="mdc-list">
+						<li class="mdc-list-item hide">Single-line item</li>
+					</ul>
+				</div>
+			</div>
+		</div>​
+	</div>
+
+	<!-- screen 2 -->
+	<div id="nearMeScreen" class="hide">
+		<br><br><br>
+		<div id="map"></div>
+	</div>
+
+	<!-- screen 3 -->
+	<div id="settingsScreen" class="hide">
+		<br><br><br><br>
+		<div class="container">
+			<!-- bus route drop down select menu -->
+			<div id="settingsDiv" class="mdc-select">
+				<select id="settingsSelect" class="mdc-select__native-control">
+					<option id="disabledOption" value="" disabled selected></option>
+					<option value="18">0.1 miles</option>
+					<option value="17">0.5 miles</option>
+					<option value="16">1.0 miles</option>
+					<option value="15">2.0 miles</option>
+				</select>
+				<div class="mdc-select__label">'Near Me' radius within</div>
+				<div class="mdc-select__bottom-line"></div>
+			</div>
+			<br><br><br><br>
+			<button id="saveChanges" class="mdc-button submitBtn" disabled><strong>Save Changes</strong></button>
+			<div class="results">
+				<ul id="saveResults" class="mdc-list">
+					<li class="mdc-list-item hide">Single-line item</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<!-- MCW Script -->
+	<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.js"></script>
+
+	<!-- JQuery CDN -->
+	<script
+		src="https://code.jquery.com/jquery-3.3.1.min.js"
+		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+		crossorigin="anonymous">
+	</script>
+	
+	<!-- Include Dexie -->
+	<script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
+
+    <!-- Personal JavaScript -->
+    <script type="text/javascript" src="./script.js"></script>
+</body>
+</html>
