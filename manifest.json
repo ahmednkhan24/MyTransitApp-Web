@@ -1,0 +1,15 @@
+{
+  "short_name": "MyTransitApp",
+  "name": "UIC East Campus MyTransitApp CTA Version",
+  "icons": [
+    {
+      "src": "./imgs/halsted.jpg",
+      "type": "image/jpg"
+    },
+    {
+      "src": "./imgs/favicon.ico",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": "https://akhan227.github.io/it202spr2018/projects/big/index.html"
+}
