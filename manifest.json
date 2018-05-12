@@ -4,10 +4,12 @@
   "icons": [
     {
       "src": "./imgs/halsted.jpg",
+      "sizes": "48x48",
       "type": "image/jpg"
     },
     {
       "src": "./imgs/favicon.ico",
+      "sizes": "48x48",
       "type": "image/x-icon"
     }
   ],
