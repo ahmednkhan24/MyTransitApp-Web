@@ -3,7 +3,7 @@ var urlsToCache = [
   './',
   './imgs/halsted.jpg',
   './imgs/favicon.ico',
-  'https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css',
+  'https://unpkg.com/material-components-web@0.34.1/dist/material-components-web.min.css',
   'https://fonts.googleapis.com/icon?family=Material+Icons'
 ];
 
